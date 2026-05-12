@@ -3,10 +3,12 @@ import Link from "next/link";
 import { footerSocials, navItems, services, site } from "@/lib/site";
 import { Container } from "@/components/ui";
 
+const currentYear = new Date().getFullYear();
+
 export default function Footer() {
   return (
     <footer className="border-t border-white/10 bg-[#050912]">
-      <Container className="py-14 lg:py-18">
+      <Container className="py-14 lg:py-16">
         <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
           <div>
             <Link href="/" className="brand-link inline-flex items-center gap-3 rounded-full transition hover:opacity-90">
@@ -74,7 +76,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
-          <p>(c) {new Date().getFullYear()} Digital Experts. All rights reserved.</p>
+          <p>(c) {currentYear} Digital Experts. All rights reserved.</p>
           <p>Strategy, design, engineering, and long-term support.</p>
         </div>
       </Container>

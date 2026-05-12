@@ -125,6 +125,21 @@ export function Panel({
   );
 }
 
+export function PanelLink({
+  href,
+  children,
+  className = "",
+}: ContainerProps & { href: string }) {
+  return (
+    <Link
+      href={href}
+      className={`premium-panel premium-panel-interactive block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-200 ${className}`}
+    >
+      {children}
+    </Link>
+  );
+}
+
 export function Chip({ children }: { children: ReactNode }) {
   return (
     <span className="chip">

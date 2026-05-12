@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { CTASection, ServiceCard, WorkCard } from "@/components/cards";
+import { ServiceCard } from "@/components/cards";
+import { CTASection } from "@/components/sections";
+import { WorkCard } from "@/components/work";
 import { Chip, Container, PageHeader, Panel, Section, SectionIntro } from "@/components/ui";
 import { services, work } from "@/lib/site";
 

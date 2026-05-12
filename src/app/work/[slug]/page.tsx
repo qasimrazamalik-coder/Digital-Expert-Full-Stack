@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CTASection, ServiceCard, WorkMockup } from "@/components/cards";
-import { ButtonLink, Chip, Container, PageHeader, Panel, Section, SectionIntro } from "@/components/ui";
+import { ServiceCard } from "@/components/cards";
+import { CTASection } from "@/components/sections";
+import { WorkMockup } from "@/components/work";
+import { ButtonLink, Chip, Container, PageHeader, Panel, PanelLink, Section, SectionIntro } from "@/components/ui";
 import { services, work } from "@/lib/site";
 
 type Props = {
@@ -54,7 +56,7 @@ export default async function CaseStudyPage({ params }: Props) {
                 <ButtonLink href="/work" variant="secondary">Back to work</ButtonLink>
               </div>
             </PageHeader>
-            <WorkMockup variant={project.visual} title={project.title} size="hero" />
+            <WorkMockup variant={project.visual} size="hero" />
           </div>
         </Container>
       </Section>
@@ -195,15 +197,15 @@ export default async function CaseStudyPage({ params }: Props) {
           </div>
           <div className="grid gap-5 lg:grid-cols-2">
             {relatedProjects.map((item) => (
-              <Link
+              <PanelLink
                 key={item.slug}
                 href={`/work/${item.slug}`}
-                className="premium-panel premium-panel-interactive rounded-[1.75rem] p-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-200"
+                className="rounded-[1.75rem] p-6"
               >
                 <Chip>{item.category}</Chip>
                 <h2 className="mt-5 text-2xl font-semibold tracking-[-0.03em] text-white">{item.title}</h2>
                 <p className="mt-3 text-sm leading-7 text-slate-400">{item.summary}</p>
-              </Link>
+              </PanelLink>
             ))}
           </div>
         </Container>

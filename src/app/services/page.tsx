@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { CTASection, ServiceCard } from "@/components/cards";
+import { ServiceCard } from "@/components/cards";
+import { CTASection } from "@/components/sections";
 import { Container, PageHeader, Panel, Section, SectionIntro } from "@/components/ui";
 import { services } from "@/lib/site";
 

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { ArrowUpRight } from "lucide-react";
-import { ServiceCard, WorkCard, CTASection } from "@/components/cards";
+import { ServiceCard } from "@/components/cards";
+import { CTASection } from "@/components/sections";
+import { WorkCard } from "@/components/work";
 import { ButtonLink, Chip, Container, Eyebrow, Panel, Section, SectionIntro } from "@/components/ui";
 import { processSteps, proofPoints, services, work } from "@/lib/site";
 
@@ -125,7 +127,7 @@ export default function Home() {
             title="A calm delivery model for complex digital work."
             text="Every engagement is shaped to reduce ambiguity before build and protect quality through launch."
           />
-          <div className="grid gap-3 md:grid-cols-7">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
             {processSteps.map((step, index) => (
               <div key={step.title} className="premium-panel-interactive rounded-3xl border border-white/10 bg-white/[0.035] p-5">
                 <Chip>0{index + 1}</Chip>

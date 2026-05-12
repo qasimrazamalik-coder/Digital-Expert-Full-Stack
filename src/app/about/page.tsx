@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { CTASection } from "@/components/cards";
+import { CTASection } from "@/components/sections";
 import { Container, PageHeader, Panel, Section, SectionIntro } from "@/components/ui";
 
 export const metadata: Metadata = {

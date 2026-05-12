@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { CTASection, WorkCard } from "@/components/cards";
-import { ButtonLink, Chip, Container, PageHeader, Panel, Section, SectionIntro } from "@/components/ui";
+import { CTASection } from "@/components/sections";
+import { WorkCard } from "@/components/work";
+import { ButtonLink, Chip, Container, PageHeader, Panel, PanelLink, Section, SectionIntro } from "@/components/ui";
 import { services, work } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -84,14 +84,14 @@ export default function WorkPage() {
             />
             <div className="grid gap-4 sm:grid-cols-2">
               {services.slice(0, 6).map((service) => (
-                <Link
+                <PanelLink
                   key={service.slug}
                   href={`/services/${service.slug}`}
-                  className="premium-panel premium-panel-interactive rounded-3xl p-5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-200"
+                  className="rounded-3xl p-5"
                 >
                   <p className="text-base font-semibold text-white">{service.title}</p>
                   <p className="mt-2 text-sm leading-6 text-slate-400">{service.eyebrow}</p>
-                </Link>
+                </PanelLink>
               ))}
             </div>
           </div>
