@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
           <div>
             <Link href="/" className="brand-link inline-flex items-center gap-3 rounded-full transition hover:opacity-90">
-              <Image src="/brand/logo-mark.svg" alt="Digital Experts" width={40} height={40} />
+              <Image src="/brand/favicon.png" alt="Digital Experts" width={40} height={40} />
               <span className="text-base font-semibold tracking-[-0.02em] text-white">Digital Experts</span>
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-7 text-slate-400">

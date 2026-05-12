@@ -29,7 +29,7 @@ export function Section({
 
 export function Eyebrow({ children }: { children: ReactNode }) {
   return (
-    <p className="mb-4 text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-cyan-200/85">
+    <p className="mb-4 text-[1rem] font-semibold uppercase tracking-[0.28em] text-cyan-200/85">
       {children}
     </p>
   );

@@ -15,12 +15,12 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <section className="relative overflow-hidden py-20 sm:py-24 lg:py-32">
+      <section className="relative overflow-hidden py-10 sm:py-14 lg:py-22">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
+          <div className="grid gap-12 lg:grid-cols-[1.7fr_1fr] lg:items-end">
             <div>
               <Eyebrow>Premium web development agency</Eyebrow>
-              <h1 className="balance max-w-4xl text-[clamp(3.35rem,8vw,7rem)] font-semibold leading-[0.9] tracking-[-0.06em] text-white">
+              <h1 className="balance max-w-4xl text-[clamp(2.35rem,9vw,4rem)] font-semibold leading-[0.9] tracking-[-0.06em] text-white">
                 Digital platforms with sharper strategy and quieter confidence.
               </h1>
               <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300/88 sm:text-xl sm:leading-9">

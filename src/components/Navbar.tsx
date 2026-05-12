@@ -33,7 +33,7 @@ export default function Navbar() {
     >
       <div className="mx-auto flex h-20 max-w-[1220px] items-center justify-between px-5 sm:px-8">
         <Link href="/" className="brand-link flex items-center gap-3 rounded-full transition hover:opacity-90">
-          <Image src="/brand/logo-mark.svg" alt="Digital Experts" width={38} height={38} priority className="h-9 w-9 sm:h-10 sm:w-10" />
+          <Image src="/brand/favicon.png" alt="Digital Experts" width={38} height={38} priority className="h-9 w-9 sm:h-10 sm:w-10" />
           <span className="text-sm font-semibold tracking-[-0.02em] text-white sm:text-base">
             Digital Experts
           </span>
