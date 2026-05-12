@@ -1,48 +1,55 @@
 import type { Metadata } from "next";
-import Services from "@/components/Services";
-import CTA from "@/components/CTA";
-import Contact from "@/components/Contact";
+import { CTASection, ServiceCard } from "@/components/cards";
+import { Container, PageHeader, Panel, Section, SectionIntro } from "@/components/ui";
+import { services } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Services - Digital Experts",
+  title: "Services",
   description:
-    "Explore our full range of web development services: Shopify, WordPress, custom web apps, SaaS UI/UX design, maintenance, and performance optimisation.",
+    "Explore Digital Experts services across Shopify, WordPress, custom web applications, SaaS product development, UI/UX design, optimization, and support.",
 };
 
 export default function ServicesPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative pt-40 pb-20 overflow-hidden">
-        <div
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(59,130,246,0.04) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(59,130,246,0.04) 1px, transparent 1px)
-            `,
-            backgroundSize: "64px 64px",
-          }}
-        />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-blue-500/5 blur-[100px] pointer-events-none" />
+      <Section>
+        <Container>
+          <PageHeader
+            eyebrow="Services"
+            title="Focused digital services for premium web and product work."
+            text="Each service is designed around outcomes: better brand perception, clearer user journeys, stronger performance, and systems your team can maintain."
+          />
+        </Container>
+      </Section>
 
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <p className="text-blue-400 text-sm font-semibold tracking-widest uppercase mb-3">
-            What we offer
-          </p>
-          <h1 className="text-5xl sm:text-6xl font-bold text-white leading-tight mb-6">
-            Our Services
-          </h1>
-          <p className="text-slate-400 text-xl leading-relaxed max-w-2xl mx-auto">
-            We specialise in six core disciplines - all focused on building
-            digital products that are fast, functional, and built to last.
-          </p>
-        </div>
-      </section>
+      <Section className="bg-[#070c15]">
+        <Container>
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {services.map((service) => (
+              <ServiceCard key={service.slug} service={service} />
+            ))}
+          </div>
+        </Container>
+      </Section>
 
-      <Services />
-      <CTA />
-      <Contact />
+      <Section>
+        <Container>
+          <SectionIntro
+            eyebrow="Outcomes"
+            title="The work is measured by what it improves."
+            text="We care about how the site or product performs after the launch moment: speed, clarity, conversion paths, editorial control, and long-term maintainability."
+          />
+          <div className="grid gap-4 md:grid-cols-4">
+            {["Brand credibility", "Conversion clarity", "Operational control", "Technical longevity"].map((item) => (
+              <Panel key={item} className="rounded-3xl p-6">
+                <p className="text-lg font-semibold text-white">{item}</p>
+              </Panel>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      <CTASection />
     </>
   );
 }
