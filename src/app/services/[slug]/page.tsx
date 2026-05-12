@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { CTASection, ServiceCard } from "@/components/cards";
+import { CTASection, ServiceCard, WorkCard } from "@/components/cards";
 import { Chip, Container, PageHeader, Panel, Section, SectionIntro } from "@/components/ui";
-import { services } from "@/lib/site";
+import { services, work } from "@/lib/site";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -32,6 +32,7 @@ export default async function ServiceDetailPage({ params }: Props) {
   if (!service) notFound();
   const Icon = service.icon;
   const related = services.filter((item) => item.slug !== service.slug).slice(0, 3);
+  const relatedWork = work.filter((project) => project.relatedServices.includes(service.slug));
 
   return (
     <>
@@ -48,6 +49,23 @@ export default async function ServiceDetailPage({ params }: Props) {
           </div>
         </Container>
       </Section>
+
+      {relatedWork.length ? (
+        <Section className="bg-[#060b13]">
+          <Container>
+            <SectionIntro
+              eyebrow="Relevant work"
+              title="Showcase studies connected to this service."
+              text="These concept and internal studies show how this capability can translate into real page systems, interface decisions, and build direction."
+            />
+            <div className="grid gap-5">
+              {relatedWork.map((project) => (
+                <WorkCard key={project.slug} project={project} />
+              ))}
+            </div>
+          </Container>
+        </Section>
+      ) : null}
 
       <Section className="bg-[#060b13]">
         <Container>

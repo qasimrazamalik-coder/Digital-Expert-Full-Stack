@@ -56,8 +56,14 @@ export default function Footer() {
               <div className="flex gap-3 pt-2">
                 {footerSocials.map((social) => {
                   const Icon = social.icon;
-                  return (
-                    <a key={social.label} href={social.href} aria-label={social.label} className="nav-link inline-flex h-9 w-9 items-center justify-center text-slate-300 hover:border-cyan-300/40 hover:text-white">
+                  const className = "nav-link inline-flex h-9 w-9 items-center justify-center text-slate-300 hover:border-cyan-300/40 hover:text-white";
+
+                  return social.href.startsWith("/") ? (
+                    <Link key={social.label} href={social.href} aria-label={social.label} className={className}>
+                      <Icon size={15} />
+                    </Link>
+                  ) : (
+                    <a key={social.label} href={social.href} aria-label={social.label} className={className}>
                       <Icon size={15} />
                     </a>
                   );

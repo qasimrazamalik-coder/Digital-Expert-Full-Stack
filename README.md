@@ -15,6 +15,9 @@ Premium multi-page agency website built with Next.js App Router, React, TypeScri
 - `/services/website-optimization`
 - `/services/maintenance-support`
 - `/work`
+- `/work/luxury-fashion-store`
+- `/work/saas-analytics-dashboard`
+- `/work/growth-agency-platform`
 - `/process`
 - `/contact`
 - `/insights`

@@ -45,6 +45,23 @@ export type Service = {
   useCases: string[];
 };
 
+export type WorkProject = {
+  slug: string;
+  title: string;
+  type: string;
+  category: string;
+  summary: string;
+  problem: string;
+  opportunity: string;
+  approach: string[];
+  features: string[];
+  stack: string[];
+  outcome: string;
+  suitedFor: string[];
+  relatedServices: string[];
+  visual: "commerce" | "analytics" | "platform";
+};
+
 export const services: Service[] = [
   {
     slug: "shopify-development",
@@ -194,45 +211,108 @@ export const services: Service[] = [
   },
 ];
 
-export const work = [
+export const work: WorkProject[] = [
   {
-    slug: "atelier-commerce-system",
-    title: "Atelier Commerce System",
+    slug: "luxury-fashion-store",
+    title: "Luxury Fashion Store",
+    type: "Internal showcase",
+    category: "Shopify / Premium Commerce",
+    summary:
+      "A luxury commerce concept exploring how a fashion storefront can feel editorial, fast, and conversion-aware without becoming visually loud.",
+    problem:
+      "Premium fashion brands often need richer storytelling than standard product grids, but heavy editorial pages can slow down the path to purchase and make merchandising difficult for internal teams.",
+    opportunity:
+      "Create a storefront system that protects brand atmosphere while giving commerce teams practical control over product launches, collections, and campaign storytelling.",
+    approach: [
+      "Frame the shopping journey around collection intent, product detail, and quiet conversion cues rather than aggressive sales patterns.",
+      "Design modular editorial blocks that can be reused by the commerce team without breaking the visual system.",
+      "Keep motion, imagery treatment, and product information restrained so the interface supports luxury perception instead of competing with it.",
+    ],
+    features: [
+      "Editorial collection landing system",
+      "Premium product detail layout",
+      "Campaign-ready content sections",
+      "Performance-aware media treatment",
+      "Checkout path and cart UX review",
+    ],
+    stack: ["Shopify", "Liquid", "Theme architecture", "Performance UX", "Analytics"],
+    outcome:
+      "A polished commerce direction that demonstrates how Shopify can support a premium brand experience while staying manageable for a lean in-house team.",
+    suitedFor: [
+      "Fashion and lifestyle brands outgrowing generic Shopify themes",
+      "Commerce teams preparing seasonal launches",
+      "Brands that need a more editorial product discovery experience",
+    ],
+    relatedServices: ["shopify-development", "ui-ux-design", "website-optimization"],
+    visual: "commerce",
+  },
+  {
+    slug: "saas-analytics-dashboard",
+    title: "SaaS Analytics Dashboard",
     type: "Concept case study",
-    category: "Shopify / Commerce",
+    category: "SaaS Product / Data UI",
     summary:
-      "A premium storefront concept for a design-led homeware brand, focused on richer merchandising and a cleaner path to purchase.",
-    challenge:
-      "The concept explores how a high-consideration product catalog can feel editorial without slowing down the buying journey.",
-    direction:
-      "We framed the experience around product storytelling, modular collection pages, and restrained conversion cues that support premium positioning.",
-    stack: ["Shopify", "Liquid", "Performance UX", "Analytics"],
+      "A dense but calm analytics interface concept for product teams that need decision-ready dashboards rather than decorative charts.",
+    problem:
+      "SaaS dashboards can become cluttered quickly: too many cards, inconsistent states, unclear priorities, and charts that look impressive but do not help teams act.",
+    opportunity:
+      "Use interface hierarchy, data grouping, and product system rules to make repeated dashboard use feel clear, fast, and confident.",
+    approach: [
+      "Define the primary decisions each dashboard view needs to support before designing the visual system.",
+      "Create reusable status, filter, table, and chart patterns that maintain clarity across dense screens.",
+      "Balance premium visual polish with operational readability so the UI feels sophisticated without becoming precious.",
+    ],
+    features: [
+      "Executive overview screen",
+      "Segmented analytics filters",
+      "Reusable metric card system",
+      "Responsive data table treatment",
+      "Empty, loading, and priority states",
+    ],
+    stack: ["Next.js", "React", "TypeScript", "Design system", "Data visualization"],
+    outcome:
+      "A product interface direction for teams that need dashboard density, hierarchy, and visual credibility in the same system.",
+    suitedFor: [
+      "SaaS teams redesigning a dated dashboard",
+      "Founders turning prototype screens into a product UI",
+      "Product teams needing a scalable interface system",
+    ],
+    relatedServices: ["saas-product-development", "custom-web-applications", "ui-ux-design"],
+    visual: "analytics",
   },
   {
-    slug: "operator-dashboard",
-    title: "Operator Dashboard",
+    slug: "growth-agency-platform",
+    title: "Growth Agency Platform",
     type: "Internal concept",
-    category: "SaaS Product",
+    category: "WordPress / Web Application",
     summary:
-      "A dense but calm SaaS dashboard concept for teams managing multi-step service operations.",
-    challenge:
-      "Operational interfaces often become visually loud while hiding the decisions teams need to make quickly.",
-    direction:
-      "We used a tighter information hierarchy, priority states, and reusable interaction patterns for repeated daily use.",
-    stack: ["Next.js", "TypeScript", "Design System", "Data UI"],
-  },
-  {
-    slug: "advisory-wordpress-platform",
-    title: "Advisory WordPress Platform",
-    type: "Sample case study",
-    category: "WordPress / CMS",
-    summary:
-      "A professional services website concept built around credibility, content governance, and a more useful publishing model.",
-    challenge:
-      "The goal was to move away from generic brochure pages and toward a CMS structure that supports thought leadership.",
-    direction:
-      "We organized services, insight content, and conversion pathways into a calm editorial system with strong governance.",
-    stack: ["WordPress", "ACF", "Gutenberg", "Technical SEO"],
+      "A platform concept for a specialist growth agency combining a premium marketing site, insight publishing, and client-facing operational surfaces.",
+    problem:
+      "Agencies often operate with disconnected marketing pages, scattered insight content, and manual client communication workflows that weaken trust after the first sale.",
+    opportunity:
+      "Create a credible agency platform that supports positioning, publishing, lead qualification, and a cleaner path toward client portal features.",
+    approach: [
+      "Structure the public site around service clarity, proof of thinking, and deeper conversion paths instead of generic brochure sections.",
+      "Design content models that make publishing repeatable while keeping editorial quality high.",
+      "Plan the platform so future client portal and reporting features can sit naturally beside the marketing experience.",
+    ],
+    features: [
+      "Service architecture and page system",
+      "Editorial insights model",
+      "Lead qualification flow",
+      "Client portal foundation",
+      "Technical SEO and CMS governance",
+    ],
+    stack: ["WordPress", "ACF", "Gutenberg", "Next.js option", "Technical SEO"],
+    outcome:
+      "A digital platform direction for agencies that need to look more established while improving the operational experience behind the site.",
+    suitedFor: [
+      "Specialist agencies repositioning upmarket",
+      "Professional service teams with publishing ambitions",
+      "Businesses planning a future portal or client dashboard",
+    ],
+    relatedServices: ["wordpress-websites", "custom-web-applications", "maintenance-support"],
+    visual: "platform",
   },
 ];
 
@@ -276,6 +356,6 @@ export const proofPoints = [
 
 export const footerSocials = [
   { label: "GitHub", href: "https://github.com/qasimrazamalik-coder", icon: ArrowUpRight },
-  { label: "LinkedIn", href: "#", icon: ArrowUpRight },
-  { label: "X", href: "#", icon: ArrowUpRight },
+  { label: "Contact", href: "/contact", icon: ArrowUpRight },
+  { label: "Work", href: "/work", icon: ArrowUpRight },
 ];
