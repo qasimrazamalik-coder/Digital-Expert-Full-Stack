@@ -1,8 +1,9 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { site } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -11,36 +12,44 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Digital Experts - Web Development Agency",
-  description:
-    "Premium web development agency specialising in Shopify, WordPress, custom web apps, SaaS UI/UX design, maintenance & optimisation. We build digital products that perform.",
-  keywords: [
-    "web development agency",
-    "Shopify development",
-    "WordPress agency",
-    "custom web apps",
-    "SaaS design",
-    "UI UX design",
-    "website maintenance",
-  ],
+  metadataBase: new URL(site.url),
+  title: {
+    default: "Digital Experts | Premium Web Development Agency",
+    template: "%s | Digital Experts",
+  },
+  description: site.description,
+  applicationName: site.name,
+  manifest: "/site.webmanifest",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/brand/logo-mark.svg", type: "image/svg+xml" },
+    ],
+    apple: [{ url: "/brand/logo-mark.svg" }],
+  },
   openGraph: {
-    title: "Digital Experts - Web Development Agency",
-    description:
-      "Premium web development agency specialising in Shopify, WordPress, custom web apps, SaaS UI/UX design, and more.",
-    url: "https://digitalexperts.dev",
-    siteName: "Digital Experts",
+    title: "Digital Experts | Premium Web Development Agency",
+    description: site.description,
+    url: site.url,
+    siteName: site.name,
+    images: [{ url: "/brand/og-image.svg", width: 1200, height: 630, alt: "Digital Experts" }],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Digital Experts - Web Development Agency",
-    description:
-      "Premium web development agency specialising in Shopify, WordPress, custom web apps, and SaaS UI/UX design.",
+    title: "Digital Experts | Premium Web Development Agency",
+    description: site.description,
+    images: ["/brand/og-image.svg"],
   },
   robots: {
     index: true,
     follow: true,
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#060B14",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({
@@ -50,9 +59,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="antialiased">
+      <body>
         <Navbar />
-        <main>{children}</main>
+        <main className="min-h-screen pt-20">{children}</main>
         <Footer />
       </body>
     </html>

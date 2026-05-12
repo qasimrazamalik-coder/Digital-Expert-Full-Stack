@@ -1,117 +1,99 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { navItems } from "@/lib/site";
+import { ButtonLink } from "@/components/ui";
 
-const navLinks = [
-  { label: "Services", href: "#services" },
-  { label: "Work", href: "#work" },
-  { label: "Process", href: "#process" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
-];
+function isActive(pathname: string, href: string) {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handler);
-    return () => window.removeEventListener("scroll", handler);
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <>
-      <motion.header
-        initial={{ y: -80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "glass border-b border-white/5 py-3"
-            : "bg-transparent py-5"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 rounded-lg bg-blue-500 flex items-center justify-center">
-              <span className="text-white font-bold text-sm">DE</span>
-            </div>
-            <span className="font-semibold text-white text-base tracking-tight">
-              Digital<span className="text-blue-400">Experts</span>
-            </span>
-          </Link>
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        scrolled ? "border-b border-white/10 bg-[#060b14]/82 backdrop-blur-xl" : "bg-transparent"
+      }`}
+    >
+      <div className="mx-auto flex h-20 max-w-[1220px] items-center justify-between px-5 sm:px-8">
+        <Link href="/" className="flex items-center gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-200">
+          <Image src="/brand/logo-mark.svg" alt="Digital Experts" width={40} height={40} priority />
+          <span className="text-sm font-semibold tracking-tight text-white sm:text-base">
+            Digital Experts
+          </span>
+        </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
+        <nav aria-label="Main navigation" className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/[0.035] p-1 lg:flex">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              aria-current={isActive(pathname, item.href) ? "page" : undefined}
+              className={`rounded-full px-4 py-2 text-sm font-medium transition ${
+                isActive(pathname, item.href)
+                  ? "bg-white text-slate-950"
+                  : "text-slate-300 hover:bg-white/[0.06] hover:text-white"
+              }`}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="hidden lg:block">
+          <ButtonLink href="/contact" variant="secondary">Start a project</ButtonLink>
+        </div>
+
+        <button
+          type="button"
+          onClick={() => setOpen((value) => !value)}
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white transition hover:bg-white/[0.08] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-200 lg:hidden"
+          aria-label={open ? "Close navigation" : "Open navigation"}
+          aria-expanded={open}
+        >
+          {open ? <X size={20} /> : <Menu size={20} />}
+        </button>
+      </div>
+
+      {open ? (
+        <div className="border-t border-white/10 bg-[#060b14]/96 px-5 py-5 backdrop-blur-xl lg:hidden">
+          <nav aria-label="Mobile navigation" className="mx-auto grid max-w-[1220px] gap-2">
+            {navItems.map((item) => (
               <Link
-                key={link.href}
-                href={link.href}
-                className="text-sm text-slate-400 hover:text-white transition-colors duration-200 font-medium"
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className={`rounded-2xl px-4 py-3 text-base font-medium ${
+                  isActive(pathname, item.href)
+                    ? "bg-white text-slate-950"
+                    : "text-slate-300 hover:bg-white/[0.06] hover:text-white"
+                }`}
               >
-                {link.label}
+                {item.label}
               </Link>
             ))}
-          </nav>
-
-          {/* CTA */}
-          <div className="hidden md:flex items-center gap-4">
-            <Link
-              href="#contact"
-              className="px-5 py-2.5 rounded-lg bg-blue-500 hover:bg-blue-400 text-white text-sm font-semibold transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/20"
-            >
-              Start a Project
+            <Link className="mt-2 rounded-2xl bg-white px-4 py-3 text-center text-base font-semibold text-slate-950" href="/contact">
+              Start a project
             </Link>
-          </div>
-
-          {/* Mobile menu toggle */}
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden text-slate-400 hover:text-white transition-colors"
-            aria-label="Toggle mobile menu"
-          >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
+          </nav>
         </div>
-      </motion.header>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="fixed top-16 left-0 right-0 z-40 glass border-b border-white/5 px-6 py-6"
-          >
-            <nav className="flex flex-col gap-5">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="text-slate-300 hover:text-white text-base font-medium transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <Link
-                href="#contact"
-                onClick={() => setMobileOpen(false)}
-                className="mt-2 px-5 py-3 rounded-lg bg-blue-500 hover:bg-blue-400 text-white text-sm font-semibold transition-all text-center"
-              >
-                Start a Project
-              </Link>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
+      ) : null}
+    </header>
   );
 }

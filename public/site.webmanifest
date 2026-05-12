@@ -1,0 +1,17 @@
+{
+  "name": "Digital Experts",
+  "short_name": "Digital Experts",
+  "description": "Premium web development and digital solutions agency.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#060B14",
+  "theme_color": "#060B14",
+  "icons": [
+    {
+      "src": "/brand/logo-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
