@@ -1,6 +1,31 @@
-# Digital Experts Site
+# Digital Experts
 
-Next.js marketing site for Digital Experts.
+Premium multi-page agency website built with Next.js App Router, React, TypeScript, Tailwind CSS, and a small reusable design system.
+
+## Routes
+
+- `/`
+- `/about`
+- `/services`
+- `/services/shopify-development`
+- `/services/wordpress-websites`
+- `/services/custom-web-applications`
+- `/services/saas-product-development`
+- `/services/ui-ux-design`
+- `/services/website-optimization`
+- `/services/maintenance-support`
+- `/work`
+- `/process`
+- `/contact`
+- `/insights`
+
+## Brand assets
+
+- `/public/brand/logo-mark.svg`
+- `/public/brand/logo-primary.svg`
+- `/public/brand/og-image.svg`
+- `/public/site.webmanifest`
+- `/src/app/favicon.ico`
 
 ## Run locally
 
