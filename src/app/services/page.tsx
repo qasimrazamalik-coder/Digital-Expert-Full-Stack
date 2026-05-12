@@ -22,7 +22,7 @@ export default function ServicesPage() {
         </Container>
       </Section>
 
-      <Section className="bg-[#070c15]">
+      <Section className="bg-[#060b13]">
         <Container>
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
@@ -41,7 +41,7 @@ export default function ServicesPage() {
           />
           <div className="grid gap-4 md:grid-cols-4">
             {["Brand credibility", "Conversion clarity", "Operational control", "Technical longevity"].map((item) => (
-              <Panel key={item} className="rounded-3xl p-6">
+              <Panel key={item} className="premium-panel-interactive rounded-3xl p-6">
                 <p className="text-lg font-semibold text-white">{item}</p>
               </Panel>
             ))}

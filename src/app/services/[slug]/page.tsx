@@ -49,22 +49,22 @@ export default async function ServiceDetailPage({ params }: Props) {
         </Container>
       </Section>
 
-      <Section className="bg-[#070c15]">
+      <Section className="bg-[#060b13]">
         <Container>
           <div className="grid gap-5 lg:grid-cols-3">
-            <Panel className="rounded-[1.75rem] p-7">
+            <Panel className="premium-panel-interactive rounded-[1.75rem] p-7">
               <h2 className="text-xl font-semibold text-white">Who it is for</h2>
               <ul className="mt-5 space-y-3 text-sm leading-7 text-slate-400">
                 {service.idealFor.map((item) => <li key={item}>{item}</li>)}
               </ul>
             </Panel>
-            <Panel className="rounded-[1.75rem] p-7">
+            <Panel className="premium-panel-interactive rounded-[1.75rem] p-7">
               <h2 className="text-xl font-semibold text-white">Problems solved</h2>
               <ul className="mt-5 space-y-3 text-sm leading-7 text-slate-400">
                 {service.problems.map((item) => <li key={item}>{item}</li>)}
               </ul>
             </Panel>
-            <Panel className="rounded-[1.75rem] p-7">
+            <Panel className="premium-panel-interactive rounded-[1.75rem] p-7">
               <h2 className="text-xl font-semibold text-white">Business outcomes</h2>
               <ul className="mt-5 space-y-3 text-sm leading-7 text-slate-400">
                 {service.outcomes.map((item) => <li key={item}>{item}</li>)}
@@ -83,13 +83,13 @@ export default async function ServiceDetailPage({ params }: Props) {
               text="Each engagement is scoped around the exact platform, product, and business constraint rather than a generic checklist."
             />
             <div className="grid gap-5">
-              <Panel className="rounded-[1.75rem] p-7">
+              <Panel className="premium-panel-interactive rounded-[1.75rem] p-7">
                 <h2 className="text-xl font-semibold text-white">Deliverables</h2>
                 <div className="mt-5 flex flex-wrap gap-2">
                   {service.deliverables.map((item) => <Chip key={item}>{item}</Chip>)}
                 </div>
               </Panel>
-              <Panel className="rounded-[1.75rem] p-7">
+              <Panel className="premium-panel-interactive rounded-[1.75rem] p-7">
                 <h2 className="text-xl font-semibold text-white">Workflow</h2>
                 <ol className="mt-5 space-y-4">
                   {service.workflow.map((item, index) => (
@@ -100,7 +100,7 @@ export default async function ServiceDetailPage({ params }: Props) {
                   ))}
                 </ol>
               </Panel>
-              <Panel className="rounded-[1.75rem] p-7">
+              <Panel className="premium-panel-interactive rounded-[1.75rem] p-7">
                 <h2 className="text-xl font-semibold text-white">Capabilities</h2>
                 <div className="mt-5 flex flex-wrap gap-2">
                   {service.capabilities.map((item) => <Chip key={item}>{item}</Chip>)}
@@ -111,12 +111,12 @@ export default async function ServiceDetailPage({ params }: Props) {
         </Container>
       </Section>
 
-      <Section className="bg-[#070c15]">
+      <Section className="bg-[#060b13]">
         <Container>
           <SectionIntro eyebrow="Use cases" title="Where this service usually creates leverage." />
           <div className="grid gap-4 md:grid-cols-4">
             {service.useCases.map((item) => (
-              <Panel key={item} className="rounded-3xl p-6">
+              <Panel key={item} className="premium-panel-interactive rounded-3xl p-6">
                 <p className="text-base font-semibold leading-7 text-white">{item}</p>
               </Panel>
             ))}

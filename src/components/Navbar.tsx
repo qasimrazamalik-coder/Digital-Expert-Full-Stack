@@ -28,27 +28,27 @@ export default function Navbar() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled ? "border-b border-white/10 bg-[#060b14]/82 backdrop-blur-xl" : "bg-transparent"
+        scrolled ? "border-b border-white/10 bg-[#050914]/88 backdrop-blur-xl" : "bg-transparent"
       }`}
     >
       <div className="mx-auto flex h-20 max-w-[1220px] items-center justify-between px-5 sm:px-8">
-        <Link href="/" className="flex items-center gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-200">
-          <Image src="/brand/logo-mark.svg" alt="Digital Experts" width={40} height={40} priority />
-          <span className="text-sm font-semibold tracking-tight text-white sm:text-base">
+        <Link href="/" className="brand-link flex items-center gap-3 rounded-full transition hover:opacity-90">
+          <Image src="/brand/logo-mark.svg" alt="Digital Experts" width={38} height={38} priority className="h-9 w-9 sm:h-10 sm:w-10" />
+          <span className="text-sm font-semibold tracking-[-0.02em] text-white sm:text-base">
             Digital Experts
           </span>
         </Link>
 
-        <nav aria-label="Main navigation" className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/[0.035] p-1 lg:flex">
+        <nav aria-label="Main navigation" className="nav-shell hidden items-center gap-1 rounded-full p-1 lg:flex">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               aria-current={isActive(pathname, item.href) ? "page" : undefined}
-              className={`rounded-full px-4 py-2 text-sm font-medium transition ${
+              className={`nav-link px-4 py-2 text-sm font-medium ${
                 isActive(pathname, item.href)
-                  ? "bg-white text-slate-950"
-                  : "text-slate-300 hover:bg-white/[0.06] hover:text-white"
+                  ? "nav-link-active"
+                  : ""
               }`}
             >
               {item.label}
@@ -63,7 +63,7 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setOpen((value) => !value)}
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white transition hover:bg-white/[0.08] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-200 lg:hidden"
+          className="nav-link inline-flex h-11 w-11 items-center justify-center bg-[rgba(248,250,252,0.04)] text-white lg:hidden"
           aria-label={open ? "Close navigation" : "Open navigation"}
           aria-expanded={open}
         >
@@ -72,23 +72,23 @@ export default function Navbar() {
       </div>
 
       {open ? (
-        <div className="border-t border-white/10 bg-[#060b14]/96 px-5 py-5 backdrop-blur-xl lg:hidden">
+        <div className="border-t border-white/10 bg-[#050914]/96 px-5 py-5 backdrop-blur-xl lg:hidden">
           <nav aria-label="Mobile navigation" className="mx-auto grid max-w-[1220px] gap-2">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className={`rounded-2xl px-4 py-3 text-base font-medium ${
+                className={`nav-link rounded-2xl px-4 py-3 text-base font-medium ${
                   isActive(pathname, item.href)
-                    ? "bg-white text-slate-950"
-                    : "text-slate-300 hover:bg-white/[0.06] hover:text-white"
+                    ? "nav-link-active"
+                    : ""
                 }`}
               >
                 {item.label}
               </Link>
             ))}
-            <Link className="mt-2 rounded-2xl bg-white px-4 py-3 text-center text-base font-semibold text-slate-950" href="/contact">
+            <Link className="btn btn-primary mt-2 rounded-2xl px-4 py-3 text-base" href="/contact" onClick={() => setOpen(false)}>
               Start a project
             </Link>
           </nav>

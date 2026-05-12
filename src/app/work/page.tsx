@@ -21,7 +21,7 @@ export default function WorkPage() {
           />
         </Container>
       </Section>
-      <Section className="bg-[#070c15]">
+      <Section className="bg-[#060b13]">
         <Container>
           <div className="grid gap-6">
             {work.map((project) => <WorkCard key={project.slug} project={project} />)}
@@ -30,7 +30,7 @@ export default function WorkPage() {
       </Section>
       <Section>
         <Container>
-          <Panel className="rounded-[2rem] p-8 sm:p-10">
+          <Panel className="premium-panel-interactive rounded-[2rem] p-8 sm:p-10">
             <h2 className="text-3xl font-semibold tracking-[-0.03em] text-white">
               Real client work can be presented privately.
             </h2>

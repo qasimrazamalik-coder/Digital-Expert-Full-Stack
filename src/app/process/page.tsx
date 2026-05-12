@@ -22,11 +22,11 @@ export default function ProcessPage() {
         </Container>
       </Section>
 
-      <Section className="bg-[#070c15]">
+      <Section className="bg-[#060b13]">
         <Container>
           <div className="grid gap-4">
             {processSteps.map((step, index) => (
-              <Panel key={step.title} className="rounded-[2rem] p-6 sm:p-8">
+              <Panel key={step.title} className="premium-panel-interactive rounded-[2rem] p-6 sm:p-8">
                 <div className="grid gap-5 md:grid-cols-[8rem_1fr] md:items-start">
                   <Chip>0{index + 1}</Chip>
                   <div>

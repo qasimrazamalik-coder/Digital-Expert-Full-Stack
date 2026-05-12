@@ -29,7 +29,7 @@ export function Section({
 
 export function Eyebrow({ children }: { children: ReactNode }) {
   return (
-    <p className="mb-4 text-xs font-semibold uppercase tracking-[0.26em] text-cyan-300/85">
+    <p className="mb-4 text-[0.72rem] font-semibold uppercase tracking-[0.28em] text-cyan-200/85">
       {children}
     </p>
   );
@@ -51,11 +51,11 @@ export function PageHeader({
   return (
     <div className={align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
       {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
-      <h1 className="balance text-5xl font-semibold leading-[0.96] tracking-[-0.04em] text-white sm:text-6xl lg:text-7xl">
+      <h1 className="balance text-5xl font-semibold leading-[0.94] tracking-[-0.045em] text-white sm:text-6xl lg:text-7xl">
         {title}
       </h1>
       {text ? (
-        <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300/82 sm:text-xl">
+        <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300/86 sm:text-xl sm:leading-9">
           {text}
         </p>
       ) : null}
@@ -78,10 +78,10 @@ export function SectionIntro({
   return (
     <div className={`mb-12 max-w-2xl ${className}`}>
       {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
-      <h2 className="balance text-3xl font-semibold leading-tight tracking-[-0.03em] text-white sm:text-4xl lg:text-5xl">
+      <h2 className="balance text-3xl font-semibold leading-[1.02] tracking-[-0.035em] text-white sm:text-4xl lg:text-5xl">
         {title}
       </h2>
-      {text ? <p className="mt-5 text-base leading-7 text-slate-400 sm:text-lg">{text}</p> : null}
+      {text ? <p className="mt-5 max-w-[42rem] text-base leading-7 text-slate-400 sm:text-lg sm:leading-8">{text}</p> : null}
     </div>
   );
 }
@@ -98,18 +98,15 @@ export function ButtonLink({
   className?: string;
 }) {
   const variants = {
-    primary:
-      "bg-white text-slate-950 hover:bg-cyan-100 focus-visible:outline-white",
-    secondary:
-      "border border-white/12 bg-white/[0.04] text-white hover:border-cyan-300/35 hover:bg-cyan-300/10 focus-visible:outline-cyan-200",
-    ghost:
-      "text-slate-300 hover:text-white focus-visible:outline-cyan-200",
+    primary: "btn-primary",
+    secondary: "btn-secondary",
+    ghost: "btn-ghost",
   };
 
   return (
     <Link
       href={href}
-      className={`group inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-5 text-sm font-semibold transition duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 ${variants[variant]} ${className}`}
+      className={`btn group ${variants[variant]} ${className}`}
     >
       {children}
       <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
@@ -130,7 +127,7 @@ export function Panel({
 
 export function Chip({ children }: { children: ReactNode }) {
   return (
-    <span className="inline-flex rounded-full border border-white/10 bg-white/[0.035] px-3 py-1 text-xs font-medium text-slate-300">
+    <span className="chip">
       {children}
     </span>
   );

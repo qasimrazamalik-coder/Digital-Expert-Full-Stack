@@ -26,6 +26,10 @@ Premium multi-page agency website built with Next.js App Router, React, TypeScri
 - `/public/brand/og-image.svg`
 - `/public/site.webmanifest`
 - `/src/app/favicon.ico`
+- `/public/favicon.svg`
+- `/public/apple-touch-icon.svg`
+- `/public/icon-192.svg`
+- `/public/icon-512.svg`
 
 ## Run locally
 

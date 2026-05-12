@@ -18,10 +18,10 @@ export default function Home() {
           <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
             <div>
               <Eyebrow>Premium web development agency</Eyebrow>
-              <h1 className="balance max-w-4xl text-6xl font-semibold leading-[0.92] tracking-[-0.055em] text-white sm:text-7xl lg:text-8xl">
+              <h1 className="balance max-w-4xl text-[clamp(3.35rem,8vw,7rem)] font-semibold leading-[0.9] tracking-[-0.06em] text-white">
                 Digital platforms with sharper strategy and quieter confidence.
               </h1>
-              <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300/85 sm:text-xl">
+              <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300/88 sm:text-xl sm:leading-9">
                 Digital Experts partners with ambitious brands and product teams to design, build, optimize, and support web experiences that feel polished, perform reliably, and stand up to serious client scrutiny.
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -30,7 +30,7 @@ export default function Home() {
               </div>
             </div>
 
-            <Panel className="relative overflow-hidden rounded-[2rem] p-6 sm:p-8">
+            <Panel className="premium-panel-interactive relative overflow-hidden rounded-[2rem] p-6 sm:p-8">
               <div className="absolute right-[-6rem] top-[-6rem] h-56 w-56 rounded-full bg-cyan-300/12 blur-3xl" />
               <div className="relative">
                 <p className="text-sm font-medium text-slate-400">Studio focus</p>
@@ -48,7 +48,7 @@ export default function Home() {
         </Container>
       </section>
 
-      <Section className="border-y border-white/10 bg-white/[0.025]" tight>
+      <Section className="border-y border-white/10 bg-[rgba(248,250,252,0.022)]" tight>
         <Container>
           <div className="grid gap-6 md:grid-cols-4">
             {["Commerce", "CMS", "SaaS", "Optimization"].map((item) => (
@@ -79,7 +79,7 @@ export default function Home() {
         </Container>
       </Section>
 
-      <Section className="bg-[#070c15]">
+      <Section className="bg-[#060b13]">
         <Container>
           <div className="mb-12 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <SectionIntro
@@ -108,7 +108,7 @@ export default function Home() {
             />
             <div className="grid gap-4 sm:grid-cols-2">
               {["Design quality protected in build", "Technical decisions explained clearly", "Content structure treated as product UX", "Maintenance considered from day one"].map((item) => (
-                <Panel key={item} className="rounded-3xl p-6">
+                <Panel key={item} className="premium-panel-interactive rounded-3xl p-6">
                   <ArrowUpRight className="mb-8 text-cyan-200" size={18} />
                   <p className="text-lg font-semibold leading-7 text-white">{item}</p>
                 </Panel>
@@ -118,7 +118,7 @@ export default function Home() {
         </Container>
       </Section>
 
-      <Section className="border-y border-white/10 bg-white/[0.025]">
+      <Section className="border-y border-white/10 bg-[rgba(248,250,252,0.022)]">
         <Container>
           <SectionIntro
             eyebrow="Process"
@@ -127,7 +127,7 @@ export default function Home() {
           />
           <div className="grid gap-3 md:grid-cols-7">
             {processSteps.map((step, index) => (
-              <div key={step.title} className="rounded-3xl border border-white/10 bg-white/[0.035] p-5">
+              <div key={step.title} className="premium-panel-interactive rounded-3xl border border-white/10 bg-white/[0.035] p-5">
                 <Chip>0{index + 1}</Chip>
                 <h3 className="mt-5 text-lg font-semibold text-white">{step.title}</h3>
               </div>

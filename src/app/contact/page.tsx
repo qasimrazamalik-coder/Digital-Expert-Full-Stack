@@ -22,13 +22,13 @@ export default function ContactPage() {
                 text="A good first conversation is practical. Share the goal, the current friction, the timeline, and what a successful outcome needs to change for the business."
               />
               <div className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-                <Panel className="rounded-3xl p-6">
+                <Panel className="premium-panel-interactive rounded-3xl p-6">
                   <p className="text-sm text-slate-500">Email</p>
-                  <a className="mt-2 block text-lg font-semibold text-white" href={`mailto:${site.email}`}>{site.email}</a>
+                  <a className="mt-2 block text-lg font-semibold text-white transition hover:text-cyan-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-200" href={`mailto:${site.email}`}>{site.email}</a>
                 </Panel>
-                <Panel className="rounded-3xl p-6">
+                <Panel className="premium-panel-interactive rounded-3xl p-6">
                   <p className="text-sm text-slate-500">WhatsApp</p>
-                  <a className="mt-2 block text-lg font-semibold text-white" href={`https://wa.me/${site.whatsapp.replace(/\D/g, "")}`}>Message the studio</a>
+                  <a className="mt-2 block text-lg font-semibold text-white transition hover:text-cyan-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-200" href={`https://wa.me/${site.whatsapp.replace(/\D/g, "")}`}>Message the studio</a>
                 </Panel>
               </div>
             </div>

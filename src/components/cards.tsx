@@ -8,12 +8,12 @@ export function ServiceCard({ service }: { service: Service }) {
   return (
     <Link
       href={`/services/${service.slug}`}
-      className="group block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-200"
+      className="group block rounded-[1.75rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-200"
     >
-      <Panel className="flex h-full flex-col justify-between rounded-[1.75rem] p-6 transition duration-300 group-hover:-translate-y-1 group-hover:border-cyan-300/28 sm:p-7">
-        <div>
+      <Panel className="premium-panel-interactive flex h-full flex-col justify-between rounded-[1.75rem] p-6 sm:p-7">
+        <div className="relative z-10">
           <div className="mb-8 flex items-center justify-between">
-            <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-cyan-200">
+            <div className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-cyan-200 transition group-hover:border-cyan-300/30 group-hover:bg-cyan-300/10">
               <Icon size={20} />
             </div>
             <ArrowUpRight size={18} className="text-slate-500 transition group-hover:text-cyan-200" />
@@ -28,7 +28,7 @@ export function ServiceCard({ service }: { service: Service }) {
             {service.summary}
           </p>
         </div>
-        <div className="mt-8 flex flex-wrap gap-2">
+        <div className="relative z-10 mt-8 flex flex-wrap gap-2">
           {service.capabilities.slice(0, 3).map((capability) => (
             <Chip key={capability}>{capability}</Chip>
           ))}
@@ -53,8 +53,8 @@ export function WorkCard({
   };
 }) {
   return (
-    <Panel className="rounded-[2rem] p-6 sm:p-8">
-      <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+    <Panel className="premium-panel-interactive rounded-[2rem] p-6 sm:p-8">
+      <div className="relative z-10 flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
         <div className="max-w-2xl">
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-300/75">
             {project.type}
@@ -66,7 +66,7 @@ export function WorkCard({
         </div>
         <Chip>{project.category}</Chip>
       </div>
-      <div className="mt-8 grid gap-5 border-t border-white/10 pt-6 md:grid-cols-2">
+      <div className="relative z-10 mt-8 grid gap-5 border-t border-white/10 pt-6 md:grid-cols-2">
         <div>
           <h4 className="text-sm font-semibold text-white">Challenge</h4>
           <p className="mt-2 text-sm leading-7 text-slate-400">{project.challenge}</p>
@@ -76,7 +76,7 @@ export function WorkCard({
           <p className="mt-2 text-sm leading-7 text-slate-400">{project.direction}</p>
         </div>
       </div>
-      <div className="mt-7 flex flex-wrap gap-2">
+      <div className="relative z-10 mt-7 flex flex-wrap gap-2">
         {project.stack.map((item) => (
           <Chip key={item}>{item}</Chip>
         ))}
@@ -89,7 +89,7 @@ export function CTASection() {
   return (
     <section className="py-18 lg:py-24">
       <div className="mx-auto max-w-[1180px] px-5 sm:px-8">
-        <Panel className="relative overflow-hidden rounded-[2rem] p-8 sm:p-10 lg:p-12">
+        <Panel className="premium-panel-interactive relative overflow-hidden rounded-[2rem] p-8 sm:p-10 lg:p-12">
           <div className="absolute right-0 top-0 h-72 w-72 rounded-full bg-cyan-300/10 blur-3xl" />
           <div className="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
             <div>
@@ -105,7 +105,7 @@ export function CTASection() {
             </div>
             <Link
               href="/contact"
-              className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 text-sm font-semibold text-slate-950 transition hover:bg-cyan-100"
+              className="btn btn-primary"
             >
               Start a project
             </Link>

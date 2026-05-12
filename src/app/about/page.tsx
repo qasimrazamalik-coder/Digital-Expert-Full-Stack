@@ -21,7 +21,7 @@ export default function AboutPage() {
         </Container>
       </Section>
 
-      <Section className="bg-[#070c15]">
+      <Section className="bg-[#060b13]">
         <Container>
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
             <SectionIntro
@@ -36,7 +36,7 @@ export default function AboutPage() {
                 "Performance and accessibility as baseline quality",
                 "Clear communication and practical trade-offs",
               ].map((item) => (
-                <Panel key={item} className="rounded-3xl p-6">
+                <Panel key={item} className="premium-panel-interactive rounded-3xl p-6">
                   <p className="text-xl font-semibold tracking-[-0.02em] text-white">{item}</p>
                 </Panel>
               ))}
@@ -58,7 +58,7 @@ export default function AboutPage() {
               ["Engineering", "Maintainable React and Next.js builds, careful component boundaries, semantic structure, and performance-minded implementation."],
               ["Business", "Scope clarity, conversion paths, operational constraints, handover needs, and the realities of maintaining a platform over time."],
             ].map(([title, text]) => (
-              <Panel key={title} className="rounded-[1.75rem] p-7">
+              <Panel key={title} className="premium-panel-interactive rounded-[1.75rem] p-7">
                 <h2 className="text-2xl font-semibold text-white">{title}</h2>
                 <p className="mt-4 text-sm leading-7 text-slate-400">{text}</p>
               </Panel>

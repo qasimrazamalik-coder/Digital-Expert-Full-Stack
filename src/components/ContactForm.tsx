@@ -84,7 +84,7 @@ export default function ContactForm() {
 
       {error ? <p className="mt-4 text-sm text-red-300">{error}</p> : null}
 
-      <button className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-white px-6 text-sm font-semibold text-slate-950 transition hover:bg-cyan-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+      <button className="btn btn-primary mt-6 w-full">
         Send inquiry
         <Send size={16} />
       </button>
