@@ -36,7 +36,7 @@ export default function Footer() {
           <div>
             <h2 className="text-sm font-semibold text-white">Services</h2>
             <ul className="mt-4 space-y-3">
-              {services.slice(0, 5).map((serviceItem) => (
+              {services.map((serviceItem) => (
                 <li key={serviceItem.slug}>
                   <Link className="text-sm text-slate-400 transition hover:text-cyan-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-200" href={`/services/${serviceItem.slug}`}>
                     {serviceItem.title}
@@ -77,7 +77,7 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
           <p>(c) {currentYear} Digital Experts. All rights reserved.</p>
-          <p>Strategy, design, engineering, and long-term support.</p>
+          <p>Strategy, design, and engineering for focused web builds.</p>
         </div>
       </Container>
     </footer>

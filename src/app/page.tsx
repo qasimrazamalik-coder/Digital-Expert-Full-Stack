@@ -9,7 +9,7 @@ import { processSteps, proofPoints, services, work } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Premium Web Development Agency",
   description:
-    "Digital Experts designs and builds premium websites, commerce systems, SaaS interfaces, and custom web applications for serious teams.",
+    "Digital Experts builds premium Shopify stores, WordPress websites, custom websites, and SaaS products for serious teams.",
 };
 
 export default function Home() {
@@ -24,7 +24,7 @@ export default function Home() {
                 Digital platforms with sharper strategy and quieter confidence.
               </h1>
               <p className="mt-7 max-w-2xl text-lg leading-8 text-slate-300/88 sm:text-xl sm:leading-9">
-                Digital Experts partners with ambitious brands and product teams to design, build, optimize, and support web experiences that feel polished, perform reliably, and stand up to serious client scrutiny.
+                Digital Experts partners with ambitious brands and product teams to design and build web experiences that feel polished, perform reliably, and stand up to serious client scrutiny.
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <ButtonLink href="/contact">Discuss a project</ButtonLink>
@@ -53,7 +53,7 @@ export default function Home() {
       <Section className="border-y border-white/10 bg-[rgba(248,250,252,0.022)]" tight>
         <Container>
           <div className="grid gap-6 md:grid-cols-4">
-            {["Commerce", "CMS", "SaaS", "Optimization"].map((item) => (
+            {["Shopify", "WordPress", "Custom websites", "SaaS products"].map((item) => (
               <div key={item}>
                 <p className="text-sm text-slate-500">Built around</p>
                 <p className="mt-2 text-xl font-semibold text-white">{item}</p>
@@ -68,10 +68,10 @@ export default function Home() {
           <SectionIntro
             eyebrow="Services"
             title="Depth where the website, product, and business model meet."
-            text="The work is intentionally focused: premium websites, commerce systems, custom applications, SaaS interfaces, optimization, and long-term support."
+            text="The work is intentionally focused: Shopify development, WordPress development, custom website development, and SaaS product development."
           />
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {services.slice(0, 6).map((service) => (
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {services.map((service) => (
               <ServiceCard key={service.slug} service={service} />
             ))}
           </div>

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { type FocusEvent, useEffect, useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { navItems, services } from "@/lib/site";
 import { ButtonLink } from "@/components/ui";
@@ -18,6 +18,13 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const servicesMenuId = "services-dropdown-menu";
+
+  const closeServicesOnBlur = (event: FocusEvent<HTMLDivElement>) => {
+    if (!event.currentTarget.contains(event.relatedTarget)) {
+      setServicesOpen(false);
+    }
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -60,12 +67,15 @@ export default function Navbar() {
                   className="relative"
                   onMouseEnter={() => setServicesOpen(true)}
                   onMouseLeave={() => setServicesOpen(false)}
+                  onFocus={() => setServicesOpen(true)}
+                  onBlur={closeServicesOnBlur}
                 >
                   <button
                     type="button"
                     onClick={() => setServicesOpen((value) => !value)}
                     aria-expanded={servicesOpen}
                     aria-haspopup="menu"
+                    aria-controls={servicesMenuId}
                     className={`nav-link inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium ${
                       active ? "nav-link-active" : ""
                     }`}
@@ -80,29 +90,43 @@ export default function Navbar() {
 
                   {servicesOpen ? (
                     <div
-                      role="menu"
-                      className="absolute left-1/2 top-[calc(100%+0.85rem)] w-[28rem] -translate-x-1/2 rounded-[1.35rem] border border-[rgba(212,175,55,0.18)] bg-[#0b0907]/96 p-2 shadow-[0_24px_70px_rgba(0,0,0,0.42)] backdrop-blur-xl"
+                      className="absolute left-1/2 top-full w-[34rem] -translate-x-1/2 pt-3"
                     >
-                      <div className="grid gap-1">
-                        <Link
-                          href="/services"
-                          role="menuitem"
-                          onClick={() => setServicesOpen(false)}
-                          className="rounded-[1rem] px-4 py-3 text-sm font-semibold text-white transition hover:bg-[rgba(255,248,235,0.065)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus)]"
-                        >
-                          Explore all services
-                        </Link>
-                        <div className="hairline my-1" />
+                      <div
+                        id={servicesMenuId}
+                        role="menu"
+                        aria-label="Services"
+                        className="rounded-[1.35rem] border border-[rgba(212,175,55,0.18)] bg-[#0b0907]/96 p-2 shadow-[0_24px_70px_rgba(0,0,0,0.42)] backdrop-blur-xl"
+                      >
+                        <div className="flex items-center justify-between px-3 pb-2 pt-2">
+                          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
+                            Services
+                          </span>
+                          <Link
+                            href="/services"
+                            role="menuitem"
+                            onClick={() => setServicesOpen(false)}
+                            className="rounded-full px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-[rgba(255,248,235,0.065)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus)]"
+                          >
+                            View all
+                          </Link>
+                        </div>
+                        <div className="grid grid-cols-2 gap-1">
                         {services.map((service) => {
                           const Icon = service.icon;
+                          const serviceHref = `/services/${service.slug}`;
+                          const serviceActive = isActive(pathname, serviceHref);
 
                           return (
                             <Link
                               key={service.slug}
-                              href={`/services/${service.slug}`}
+                              href={serviceHref}
                               role="menuitem"
+                              aria-current={serviceActive ? "page" : undefined}
                               onClick={() => setServicesOpen(false)}
-                              className="group grid grid-cols-[2.25rem_1fr] gap-3 rounded-[1rem] px-3 py-3 transition hover:bg-[rgba(255,248,235,0.065)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus)]"
+                              className={`group grid grid-cols-[2.25rem_1fr] gap-3 rounded-[1rem] px-3 py-3 transition hover:bg-[rgba(255,248,235,0.065)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus)] ${
+                                serviceActive ? "bg-[rgba(212,175,55,0.1)]" : ""
+                              }`}
                             >
                               <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[rgba(212,175,55,0.16)] bg-[rgba(255,248,235,0.045)] text-[var(--accent)] transition group-hover:border-[rgba(212,175,55,0.34)] group-hover:bg-[rgba(212,175,55,0.1)]">
                                 <Icon size={17} aria-hidden="true" />
@@ -116,6 +140,17 @@ export default function Navbar() {
                             </Link>
                           );
                         })}
+                        </div>
+                        <div className="hairline my-2" />
+                        <Link
+                          href="/contact"
+                          role="menuitem"
+                          onClick={() => setServicesOpen(false)}
+                          className="flex items-center justify-between rounded-[1rem] px-3 py-2.5 text-sm font-semibold text-white transition hover:bg-[rgba(255,248,235,0.065)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus)]"
+                        >
+                          <span>Need help choosing?</span>
+                          <span className="text-xs text-[var(--muted)]">Start a project</span>
+                        </Link>
                       </div>
                     </div>
                   ) : null}
@@ -164,6 +199,7 @@ export default function Navbar() {
                       type="button"
                       onClick={() => setServicesOpen((value) => !value)}
                       aria-expanded={servicesOpen}
+                      aria-controls={servicesMenuId}
                       className={`nav-link flex items-center justify-between rounded-2xl px-4 py-3 text-base font-medium ${
                         active ? "nav-link-active" : ""
                       }`}
@@ -186,14 +222,36 @@ export default function Navbar() {
                           Explore all services
                         </Link>
                         {services.map((service) => (
-                          <Link
-                            key={service.slug}
-                            href={`/services/${service.slug}`}
-                            onClick={() => setOpen(false)}
-                            className="rounded-[1rem] px-3 py-2.5 text-sm font-medium text-[var(--text-soft)] transition hover:bg-[rgba(255,248,235,0.065)] hover:text-white"
-                          >
-                            {service.title}
-                          </Link>
+                          (() => {
+                            const Icon = service.icon;
+                            const serviceHref = `/services/${service.slug}`;
+                            const serviceActive = isActive(pathname, serviceHref);
+
+                            return (
+                              <Link
+                                key={service.slug}
+                                href={serviceHref}
+                                aria-current={serviceActive ? "page" : undefined}
+                                onClick={() => {
+                                  setOpen(false);
+                                  setServicesOpen(false);
+                                }}
+                                className={`grid grid-cols-[2rem_1fr] gap-3 rounded-[1rem] px-3 py-3 transition hover:bg-[rgba(255,248,235,0.065)] ${
+                                  serviceActive ? "bg-[rgba(212,175,55,0.1)]" : ""
+                                }`}
+                              >
+                                <span className="flex h-8 w-8 items-center justify-center rounded-full border border-[rgba(212,175,55,0.16)] bg-[rgba(255,248,235,0.045)] text-[var(--accent)]">
+                                  <Icon size={16} aria-hidden="true" />
+                                </span>
+                                <span className="min-w-0">
+                                  <span className="block text-sm font-semibold text-white">{service.title}</span>
+                                  <span className="mt-0.5 line-clamp-2 block text-xs leading-5 text-[var(--text-soft)]">
+                                    {service.summary}
+                                  </span>
+                                </span>
+                              </Link>
+                            );
+                          })()
                         ))}
                       </div>
                     ) : null}

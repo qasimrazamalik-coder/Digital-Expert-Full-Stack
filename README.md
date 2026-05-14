@@ -8,12 +8,9 @@ Premium multi-page agency website built with Next.js App Router, React, TypeScri
 - `/about`
 - `/services`
 - `/services/shopify-development`
-- `/services/wordpress-websites`
-- `/services/custom-web-applications`
+- `/services/wordpress-development`
+- `/services/custom-website-development`
 - `/services/saas-product-development`
-- `/services/ui-ux-design`
-- `/services/website-optimization`
-- `/services/maintenance-support`
 - `/work`
 - `/work/luxury-fashion-store`
 - `/work/saas-analytics-dashboard`

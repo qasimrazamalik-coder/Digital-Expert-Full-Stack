@@ -1,11 +1,8 @@
 import {
   ArrowUpRight,
   Blocks,
-  Gauge,
   Layers3,
-  LifeBuoy,
   MonitorSmartphone,
-  PenTool,
   ShoppingBag,
   type LucideIcon,
 } from "lucide-react";
@@ -104,11 +101,11 @@ export const services: Service[] = [
     useCases: ["Premium storefront redesign", "Theme rebuild", "Migration to Shopify", "Conversion-focused product page system"],
   },
   {
-    slug: "wordpress-websites",
-    title: "WordPress Websites",
-    eyebrow: "Editorial CMS builds",
+    slug: "wordpress-development",
+    title: "WordPress Development",
+    eyebrow: "WordPress engineering",
     summary:
-      "Custom WordPress websites with considered content architecture, clean editing workflows, and durable front-end implementation.",
+      "Custom WordPress development with considered content architecture, clean editing workflows, and durable front-end implementation.",
     intro:
       "We build WordPress for organizations that need publishing flexibility without sacrificing speed, accessibility, security, or brand expression.",
     icon: MonitorSmartphone,
@@ -125,21 +122,21 @@ export const services: Service[] = [
     useCases: ["Corporate website", "Knowledge hub", "Professional services website", "Marketing site rebuild"],
   },
   {
-    slug: "custom-web-applications",
-    title: "Custom Web Applications",
-    eyebrow: "Product engineering",
+    slug: "custom-website-development",
+    title: "Custom Website Development",
+    eyebrow: "Custom web engineering",
     summary:
-      "Bespoke web applications for operations, portals, dashboards, internal tools, and customer-facing digital products.",
+      "Bespoke websites and web applications for brands that need more control than templates or generic site builders can provide.",
     intro:
-      "When a generic tool cannot carry the workflow, we design and build focused web applications around the real processes your business depends on.",
+      "When a generic website cannot carry the brand, workflow, or customer journey, we design and build custom web experiences around the real goals your business depends on.",
     icon: Blocks,
-    outcomes: ["Purpose-built workflows", "Cleaner interfaces for complex tasks", "Scalable foundations for future product decisions"],
-    idealFor: ["Businesses replacing spreadsheet-heavy operations", "Teams building client portals", "Companies validating a new digital product"],
-    problems: ["Manual processes", "Disconnected systems", "Poor data visibility", "Tools that do not match the team workflow"],
-    deliverables: ["Product brief", "UX flows", "Front-end application", "API integration", "Admin/dashboard interfaces"],
-    workflow: ["Map workflows", "Prioritize the MVP", "Design core screens", "Build in thin vertical slices", "Test with real users"],
-    capabilities: ["Next.js", "React", "TypeScript", "APIs", "Authentication", "Dashboards"],
-    useCases: ["Client portal", "Internal operations system", "Booking platform", "Data dashboard"],
+    outcomes: ["Distinct brand experience", "Cleaner interfaces for complex content", "Scalable foundations for future growth"],
+    idealFor: ["Brands outgrowing templates", "Teams building conversion-focused websites", "Companies needing custom front-end behavior"],
+    problems: ["Generic page layouts", "Disconnected systems", "Poor content flexibility", "Sites that do not match the business workflow"],
+    deliverables: ["Website strategy", "UX flows", "Custom front-end build", "CMS or API integration", "Launch-ready page system"],
+    workflow: ["Map goals and content needs", "Plan the page system", "Design core templates", "Build reusable sections", "Test, optimize, and launch"],
+    capabilities: ["Next.js", "React", "TypeScript", "CMS integration", "APIs", "Performance"],
+    useCases: ["Marketing website", "Service website", "Client portal", "Interactive landing page system"],
   },
   {
     slug: "saas-product-development",
@@ -157,57 +154,6 @@ export const services: Service[] = [
     workflow: ["Clarify product jobs", "Structure core flows", "Design the interface system", "Implement key screens", "Measure and iterate"],
     capabilities: ["SaaS dashboards", "Design systems", "React", "Next.js", "Product onboarding", "Role-based UI"],
     useCases: ["MVP build", "Dashboard redesign", "Account setup flow", "Feature launch interface"],
-  },
-  {
-    slug: "ui-ux-design",
-    title: "UI/UX Design",
-    eyebrow: "Interface direction",
-    summary:
-      "Strategic interface design for websites and products, balancing brand perception, usability, and conversion clarity.",
-    intro:
-      "We design digital experiences that look premium because the structure is right: clear priorities, thoughtful interaction, and visual systems that can scale.",
-    icon: PenTool,
-    outcomes: ["Sharper hierarchy", "More confident brand perception", "Interfaces developers can build accurately"],
-    idealFor: ["Brands preparing a redesign", "Product teams needing UX direction", "Founders turning ideas into prototypes"],
-    problems: ["Generic pages", "Unclear user journeys", "Inconsistent components", "Design that does not translate into production"],
-    deliverables: ["UX review", "Wireframes", "High-fidelity UI", "Responsive states", "Design handoff"],
-    workflow: ["Define audiences and goals", "Map journeys", "Explore visual direction", "Design core screens", "Document interaction rules"],
-    capabilities: ["UX strategy", "Wireframing", "Interface systems", "Responsive design", "Design QA", "Conversion UX"],
-    useCases: ["Website redesign", "SaaS interface", "Landing page system", "Prototype for validation"],
-  },
-  {
-    slug: "website-optimization",
-    title: "Website Optimization",
-    eyebrow: "Performance and conversion",
-    summary:
-      "Technical, UX, and performance improvements that make existing websites faster, clearer, and easier to convert.",
-    intro:
-      "Optimization is where design judgment meets engineering discipline. We improve the parts of a site that influence speed, comprehension, trust, and action.",
-    icon: Gauge,
-    outcomes: ["Better Core Web Vitals", "Cleaner conversion paths", "Reduced friction across key pages"],
-    idealFor: ["Sites with slow load times", "Brands with traffic but weak conversion", "Teams preparing campaigns or launches"],
-    problems: ["Heavy pages", "Unclear CTAs", "Content hierarchy issues", "Analytics without action"],
-    deliverables: ["Performance audit", "UX review", "Technical fixes", "Priority roadmap", "Before/after reporting"],
-    workflow: ["Measure current performance", "Identify high-leverage fixes", "Implement carefully", "Retest and document improvements"],
-    capabilities: ["Core Web Vitals", "Lighthouse", "Image strategy", "Code splitting", "Analytics review", "Technical SEO"],
-    useCases: ["Speed recovery", "Conversion page polish", "Pre-launch optimization", "Technical cleanup sprint"],
-  },
-  {
-    slug: "maintenance-support",
-    title: "Maintenance & Support",
-    eyebrow: "Long-term care",
-    summary:
-      "Ongoing technical support, improvements, security updates, and careful stewardship for business-critical websites and products.",
-    intro:
-      "A serious website needs more than a launch. We keep platforms stable, current, secure, and evolving with the business.",
-    icon: LifeBuoy,
-    outcomes: ["Reduced operational risk", "Reliable update cadence", "A partner who understands the system over time"],
-    idealFor: ["Teams without in-house web engineering", "Businesses with mission-critical websites", "Brands needing ongoing improvement"],
-    problems: ["Unmaintained dependencies", "Reactive fixes", "No ownership after launch", "Small issues becoming expensive later"],
-    deliverables: ["Maintenance plan", "Security updates", "Priority support", "Monthly improvements", "Technical documentation"],
-    workflow: ["Baseline audit", "Stabilize risks", "Create support cadence", "Handle updates and improvements", "Report clearly"],
-    capabilities: ["Next.js", "Shopify", "WordPress", "Monitoring", "Security patches", "Small feature delivery"],
-    useCases: ["Post-launch support", "Monthly retained improvements", "Security and update care", "Emergency issue response"],
   },
 ];
 
@@ -243,7 +189,7 @@ export const work: WorkProject[] = [
       "Commerce teams preparing seasonal launches",
       "Brands that need a more editorial product discovery experience",
     ],
-    relatedServices: ["shopify-development", "ui-ux-design", "website-optimization"],
+    relatedServices: ["shopify-development", "custom-website-development"],
     visual: "commerce",
   },
   {
@@ -277,7 +223,7 @@ export const work: WorkProject[] = [
       "Founders turning prototype screens into a product UI",
       "Product teams needing a scalable interface system",
     ],
-    relatedServices: ["saas-product-development", "custom-web-applications", "ui-ux-design"],
+    relatedServices: ["saas-product-development", "custom-website-development"],
     visual: "analytics",
   },
   {
@@ -311,7 +257,7 @@ export const work: WorkProject[] = [
       "Professional service teams with publishing ambitions",
       "Businesses planning a future portal or client dashboard",
     ],
-    relatedServices: ["wordpress-websites", "custom-web-applications", "maintenance-support"],
+    relatedServices: ["wordpress-development", "custom-website-development"],
     visual: "platform",
   },
 ];

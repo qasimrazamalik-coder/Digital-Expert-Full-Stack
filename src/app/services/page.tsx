@@ -7,7 +7,7 @@ import { services } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Explore Digital Experts services across Shopify, WordPress, custom web applications, SaaS product development, UI/UX design, optimization, and support.",
+    "Explore Digital Experts services across Shopify development, WordPress development, custom website development, and SaaS product development.",
 };
 
 export default function ServicesPage() {
@@ -25,7 +25,7 @@ export default function ServicesPage() {
 
       <Section className="bg-[#060b13]">
         <Container>
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {services.map((service) => (
               <ServiceCard key={service.slug} service={service} />
             ))}

@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Start a project with Digital Experts. Send a web development, SaaS, Shopify, WordPress, optimization, or support inquiry.",
+    "Start a project with Digital Experts for Shopify development, WordPress development, custom website development, or SaaS product development.",
 };
 
 export default function ContactPage() {

@@ -7,7 +7,7 @@ import { services, work } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Explore Digital Experts premium internal showcase and concept case studies across Shopify, SaaS dashboards, WordPress platforms, and custom web applications.",
+    "Explore Digital Experts premium internal showcase and concept case studies across Shopify, SaaS dashboards, WordPress platforms, and custom website development.",
 };
 
 const categories = ["Premium Commerce", "SaaS Product", "CMS Platforms"];
@@ -80,10 +80,10 @@ export default function WorkPage() {
             <SectionIntro
               eyebrow="Connected services"
               title="Portfolio thinking connects directly to delivery."
-              text="The work section is not a mood board. Each study is tied to the service capabilities Digital Experts can scope, design, build, and support."
+              text="The work section is not a mood board. Each study is tied to the service capabilities Digital Experts can scope, design, and build."
             />
             <div className="grid gap-4 sm:grid-cols-2">
-              {services.slice(0, 6).map((service) => (
+              {services.map((service) => (
                 <PanelLink
                   key={service.slug}
                   href={`/services/${service.slug}`}
